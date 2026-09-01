@@ -1,6 +1,6 @@
 // Holder for holding an Anode by the Nut, allowing to align straight the anode with the hole.
 toolWidth=36;
-toolLength=10;
+toolLength=100;
 toolHoleSize=20;
 nutEdgeWidth=27;
 nutEdgeHeight=5;
@@ -27,6 +27,14 @@ difference() {
         cylinder(h=threadDepth, d=threadDiameter, $fn=360);
         translate([10,0,0]) {
             cylinder(h=threadDepth, d=threadDiameter, $fn=360);
+        }
+    }
+    translate([0,0,nutEdgeHeight+threadDepth]) {
+        hull() {
+            cylinder(h=nutEdgeHeight, d=toolHoleSize, $fn=360);
+            translate([10,0,0]) {
+                cylinder(h=nutEdgeHeight, d=toolHoleSize, $fn=360);
+            }
         }
     }
 }
